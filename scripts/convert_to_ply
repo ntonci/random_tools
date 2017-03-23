@@ -1,0 +1,6 @@
+#!/bin/bash
+for f in *.pcd
+do
+  # TODO: find pcl installation
+  ./pcl_pcd2ply $f $f.ply -format ascii
+done

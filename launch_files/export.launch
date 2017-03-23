@@ -1,0 +1,24 @@
+<launch>
+  <node pkg="rosbag" type="play" name="rosbag" args="-d 2 /home/ntonci/bagfiles/lorear_close.bag"/>
+  <node name="extract_rgb" pkg="image_view" type="image_saver" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/camera/rgb/image_rect_color"/>
+    <param name="filename_format" value="/home/ntonci/bagfiles/rgb_images/frame%03i.png"/>
+  </node>
+  <!-- <node name="extract_depth" pkg="image_view" type="image_saver" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/camera/depth/image_rect"/>
+    <param name="filename_format" value="/home/ntonci/bagfiles/depth_images/frame%03i.png"/>
+    <param name="encoding" value="32FC1"/>
+  </node> -->
+  <node name="extract_depth" pkg="image_view" type="depth_image_saver" respawn="false" output="screen" cwd="ROS_HOME">
+    <remap from="image" to="/camera/depth/image_rect"/>
+    <param name="filename_format" value="/home/ntonci/bagfiles/depth_images/frame%03i.exr"/>
+    <param name="encoding" value="32FC1"/>
+  </node>
+  <!-- <node name="extract_pcd" pkg="pcl_ros" type="pointcloud_to_pcd">
+    <param name="input" value="/camera/depth_registered/points"/>
+    <param name="_prefix" value="/home/ntonci/bagfiles/pc/frame_"/>
+  </node> -->
+</launch>
+
+<!-- Need to download depth_image_saver -->
+<!-- TODO: pass bag name -->
