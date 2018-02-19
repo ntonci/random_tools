@@ -175,15 +175,15 @@ void depthImageRectRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   ++global_counter_depth_rect_raw;
 }
 void depthImageHwRectCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
-  saveImage(sensor_msg, CV_32FC1, global_counter_depth_hw_rect,
-            "depth_image_hw_rect", ".exr");
+  saveImage(sensor_msg, CV_16UC1, global_counter_depth_hw_rect,
+            "depth_image_hw_rect", ".tiff");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_hw_rect) +
                    " depth_hw_rect image";
   ++global_counter_depth_hw_rect;
 }
 void depthImageHwRectRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
-  saveImage(sensor_msg, CV_16UC1, global_counter_depth_hw_rect_raw,
-            "depth_image_hw_rect_raw", ".tiff");
+  saveImage(sensor_msg, CV_32FC1, global_counter_depth_hw_rect_raw,
+            "depth_image_hw_rect_raw", ".exr");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_hw_rect_raw) +
                    " depth_hw_rect_raw image";
   ++global_counter_depth_hw_rect_raw;
@@ -203,15 +203,15 @@ void depthImageSwRectRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   ++global_counter_depth_sw_rect_raw;
 }
 void depthImageRegCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
-  saveImage(sensor_msg, CV_32FC1, global_counter_depth_reg, "depth_image_reg",
-            ".exr");
+  saveImage(sensor_msg, CV_16UC1, global_counter_depth_reg, "depth_image_reg",
+            ".tiff");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_reg) +
                    " depth_reg image";
   ++global_counter_depth_reg;
 }
 void depthImageRegRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
-  saveImage(sensor_msg, CV_16UC1, global_counter_depth_reg_raw,
-            "depth_image_reg_raw", ".tiff");
+  saveImage(sensor_msg, CV_32FC1, global_counter_depth_reg_raw,
+            "depth_image_reg_raw", ".exr");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_reg_raw) +
                    " depth_reg_raw image";
   ++global_counter_depth_reg_raw;
