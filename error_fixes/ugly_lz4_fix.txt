@@ -1,0 +1,6 @@
+replace #include <lz4.h> in lz4s.h in /opt/ros/lunar/include/roslz4 with:
+#ifndef LZ4_H_2983827168210
+#define LZ4_H_2983827168210
+#include <lz4.h>
+#undef LZ4_H_2983827168210
+#endif
