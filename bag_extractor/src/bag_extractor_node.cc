@@ -155,7 +155,7 @@ void depthImageCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
 }
 void depthImageRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   saveImage(sensor_msg, CV_16UC1, global_counter_depth_raw, "depth_image_raw",
-            ".tiff");
+            ".png");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_raw) +
                    " depth_raw image";
   ++global_counter_depth_raw;
@@ -169,14 +169,14 @@ void depthImageRectCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
 }
 void depthImageRectRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   saveImage(sensor_msg, CV_16UC1, global_counter_depth_rect_raw,
-            "depth_image_rect_raw", ".tiff");
+            "depth_image_rect_raw", ".png");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_rect_raw) +
                    " depth_rect_raw image";
   ++global_counter_depth_rect_raw;
 }
 void depthImageHwRectCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   saveImage(sensor_msg, CV_16UC1, global_counter_depth_hw_rect,
-            "depth_image_hw_rect", ".tiff");
+            "depth_image_hw_rect", ".png");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_hw_rect) +
                    " depth_hw_rect image";
   ++global_counter_depth_hw_rect;
@@ -197,14 +197,14 @@ void depthImageSwRectCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
 }
 void depthImageSwRectRawCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   saveImage(sensor_msg, CV_16UC1, global_counter_depth_sw_rect_raw,
-            "depth_image_sw_rect_raw", ".tiff");
+            "depth_image_sw_rect_raw", ".png");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_sw_rect_raw) +
                    " depth_sw_rect_raw image";
   ++global_counter_depth_sw_rect_raw;
 }
 void depthImageRegCallback(const sensor_msgs::ImageConstPtr& sensor_msg) {
   saveImage(sensor_msg, CV_16UC1, global_counter_depth_reg, "depth_image_reg",
-            ".tiff");
+            ".png");
   LOG(INFO) << "Saved " + std::to_string(global_counter_depth_reg) +
                    " depth_reg image";
   ++global_counter_depth_reg;
@@ -223,7 +223,7 @@ int main(int argc, char** argv) {
 
   FLAGS_alsologtostderr = true;
 
-  ros::init(argc, argv, "block_detection_node");
+  ros::init(argc, argv, "bag_extraction_node");
   ros::NodeHandle nodeHandle("~");
 
   // PARAMS
